@@ -43,6 +43,7 @@ The project is actively evolving into a full-stack application. The next phase i
 - **Email verification** — account confirmation on signup
 - **Real OAuth** — Google, Facebook, LinkedIn integration
 - **Password recovery** — email-based reset flow
+- **Custom 404 page** — branded error page with redirect to login
 
 ---
 
@@ -101,3 +102,73 @@ auth-system/
 
 ### Signup
 <img width="1918" height="907" alt="Cadastro - captura de tela (projeto)" src="https://github.com/user-attachments/assets/73edf9bc-f8b2-4aa5-8370-ec75de478a34" />
+
+---
+
+## 🔌 Tech Stack
+
+| Layer | Technology | Status |
+|-------|-----------|--------|
+| **Frontend** | HTML5, CSS3, Vanilla JS | ✅ Complete |
+| **Backend** | Node.js, Express | 🚧 Planned |
+| **Database** | PostgreSQL / MongoDB | 🚧 Evaluation |
+| **Auth** | JWT, bcrypt | 🚧 Planned |
+| **OAuth** | Google, Facebook, LinkedIn | 🚧 Planned |
+
+---
+
+## 🚀 Getting Started
+
+### Run the Frontend
+
+1. Clone the repository:
+```bash
+git clone https://github.com/rsanguini/auth-system.git
+cd auth-system/src
+```
+
+2. Open `index.html` in any modern browser — no build step required.
+
+3. **Sign up** first to create an account, then **log in** with the same credentials.
+
+> ⚠️ Data is stored in memory only — refreshing the page clears all registered users. Backend persistence is the next development phase.
+
+---
+
+## 🗺️ Roadmap
+
+| Phase | Description | Status |
+|-------|-------------|--------|
+| **1. Frontend** | Login, signup, validation, UI/UX | ✅ Complete |
+| **2. Backend API** | Express server, REST endpoints, middleware | 🚧 Next |
+| **3. Database** | Schema design, user model, migrations | 📋 Planned |
+| **4. Security** | bcrypt hashing, JWT tokens, rate limiting | 📋 Planned |
+| **5. OAuth** | Google, Facebook, LinkedIn passport strategies | 📋 Planned |
+| **6. Email** | Verification on signup, password reset flow | 📋 Planned |
+| **7. Polish** | Animations, responsive mobile, dark mode, custom 404 page | 📋 Planned |
+
+---
+
+## 🧠 Concepts Applied
+
+- **DOM manipulation** — element selection, class toggling, dynamic content
+- **Event-driven programming** — `addEventListener`, `keydown`, `click`
+- **Form validation** — regex, length checks, field comparison, real-time feedback
+- **State management** — in-memory object as mock database
+- **Session storage** — `sessionStorage` for "Remember me" feature
+- **CSS animations** — pure CSS slide transition with `transform` and `transition`
+- **Modular functions** — separation of concerns (validation, UI, auth logic)
+
+---
+
+## 👤 Author
+
+**Rafael Sanguini Colagrossi** — Software Engineering Student
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/rafaelsanguini)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/rsanguini)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat-square&logo=vercel&logoColor=white)](https://rafaelsanguini.vercel.app)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:rafaelcolagrossi@gmail.com)
+
+---
+<div align="center">⭐ If this project was helpful, leave a star — it means a lot!</div>
