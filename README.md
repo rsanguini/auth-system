@@ -119,7 +119,15 @@ auth-system/
 
 ## 🚀 Getting Started
 
-### Run the Frontend
+### Try it online
+
+The project is deployed on Vercel — just click and try:
+
+🔗 **[auth-system.vercel.app](https://auth-system.vercel.app)**
+
+> Create an account on the signup screen, then log in with the same credentials.
+
+### Run locally
 
 1. Clone the repository:
 ```bash
@@ -129,10 +137,7 @@ cd auth-system/src
 
 2. Open `index.html` in any modern browser — no build step required.
 
-3. **Sign up** first to create an account, then **log in** with the same credentials.
-
 > ⚠️ Data is stored in memory only — refreshing the page clears all registered users. Backend persistence is the next development phase.
-
 ---
 
 ## 🗺️ Roadmap
