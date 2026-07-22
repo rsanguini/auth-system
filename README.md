@@ -43,3 +43,61 @@ The project is actively evolving into a full-stack application. The next phase i
 - **Email verification** — account confirmation on signup
 - **Real OAuth** — Google, Facebook, LinkedIn integration
 - **Password recovery** — email-based reset flow
+
+---
+
+## 🏗️ Architecture
+
+### Frontend (Current)
+```text
+src/
+├── index.html    # Page structure (login + signup + modal)
+├── style.css     # Styling, animations, responsive layout
+└── script.js     # Auth logic, validation, state management
+```
+
+### Full-Stack Target
+```text
+auth-system/
+├── frontend/
+│   ├── src/
+│   │   ├── index.html
+│   │   ├── style.css
+│   │   └── script.js
+│   └── ...
+├── backend/               → (in development)
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   └── middleware/
+│   ├── package.json
+│   └── server.js
+├── database/              → (in development)
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+---
+
+## 🎨 Design
+
+| Element | Detail |
+|---------|--------|
+| **Color palette** | Navy blue (`#1A233D`) + cream off-white (`#F7F4EF`) + gold accents |
+| **Layout** | Split-card design — functional form panel + motivational text panel |
+| **Animation** | CSS-only slide transition via `<input type="checkbox">` (no JS) |
+| **Typography** | Playfair Display (headings) + DM Sans (body) |
+| **Icons** | SVG inline — zero external dependencies |
+
+---
+
+## 📸 Screenshots
+
+### Login
+<img width="1919" height="907" alt="Login - captura de tela (projeto)" src="https://github.com/user-attachments/assets/fc5dc64b-5256-4e68-83c5-8803492c428a" />
+
+
+### Signup
+<img width="1918" height="907" alt="Cadastro - captura de tela (projeto)" src="https://github.com/user-attachments/assets/73edf9bc-f8b2-4aa5-8370-ec75de478a34" />
