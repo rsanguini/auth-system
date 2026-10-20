@@ -1,63 +1,68 @@
-<h1 align="center"> Auth System</h1>
-<p align="center">A full-stack authentication system — frontend complete, backend in development.</p>
+#  Auth System
+
+<p align="center">Um sistema full-stack de autenticação — frontend concluído, backend em desenvolvimento.</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript"/>
-  <img src="https://img.shields.io/badge/License-MIT-22c55e?style=flat-square" alt="MIT License"/>
-  <img src="https://img.shields.io/badge/Status-In%20Development-f0a030?style=flat-square" alt="Status"/>
+  <img src="https://img.shields.io/badge/License-MIT-22c55e?style=flat-square" alt="Licença MIT"/>
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-f0a030?style=flat-square" alt="Status"/>
 </p>
 
 ---
 
-## 📖 Overview
+##  Visão geral
 
-**Auth System** is an authentication interface built from scratch with vanilla HTML, CSS, and JavaScript — no frameworks, no libraries. The frontend layer is complete with form validation, password strength meter, toast notifications, and a smooth slide animation between login and signup panels.
+O **Auth System** é uma interface de autenticação desenvolvida do zero com HTML, CSS e JavaScript puro, sem frameworks ou bibliotecas externas.
 
-The project is actively evolving into a full-stack application. The next phase introduces a Node.js backend with database persistence, password hashing (bcrypt), JWT-based sessions, and real OAuth integration.
+O frontend está concluído e conta com validação de formulários, indicador de força da senha, notificações toast e uma animação deslizante suave entre as telas de login e cadastro.
 
----
-
-## ✨ Features
-
-### ✅ Current (Frontend)
-
-- **Login & Signup** — dual-mode interface with CSS slide animation
-- **Form validation** — real-time feedback on every field (email format, min length, password match)
-- **Password strength meter** — 4-level indicator (Weak → Medium → Strong → Very Strong) with color-coded bars
-- **Show/hide password** — toggle with SVG eye icon
-- **Toast notifications** — success, error, and info messages with auto-dismiss
-- **Forgot password modal** — recovery flow (mock — backend pending)
-- **Remember me** — session persistence via `sessionStorage`
-- **Social login UI** — Google, Facebook, LinkedIn buttons (visual only — OAuth pending)
-- **Auto-redirect** — signup flow redirects to login after success
-- **Enter key support** — submit forms with keyboard
-
-### 🚧 In Development (Backend)
-
-- **Node.js + Express API** — REST endpoints for auth operations
-- **Database persistence** — PostgreSQL or MongoDB (evaluation phase)
-- **Password hashing** — bcrypt with salt rounds
-- **JWT authentication** — token-based session management
-- **Email verification** — account confirmation on signup
-- **Real OAuth** — Google, Facebook, LinkedIn integration
-- **Password recovery** — email-based reset flow
-- **Custom 404 page** — branded error page with redirect to login
+O projeto está evoluindo para uma aplicação full-stack. A próxima etapa prevê a implementação de um backend com Node.js, persistência de dados em banco de dados, criptografia de senhas com bcrypt, autenticação baseada em JWT e integração real com provedores OAuth.
 
 ---
 
-## 🏗️ Architecture
+##  Funcionalidades
 
-### Frontend (Current)
+###  Implementadas — Frontend
+
+- **Login e cadastro** — interface com dois modos e animação de transição em CSS.
+- **Validação de formulários** — feedback em tempo real para cada campo, incluindo formato de e-mail, tamanho mínimo e confirmação de senha.
+- **Indicador de força da senha** — classificação em quatro níveis: fraca, média, forte e muito forte, com barras coloridas.
+- **Mostrar ou ocultar senha** — alternância de visibilidade com ícone SVG de olho.
+- **Notificações toast** — mensagens de sucesso, erro e informação com fechamento automático.
+- **Modal de recuperação de senha** — fluxo demonstrativo de recuperação, com backend ainda pendente.
+- **Lembrar de mim** — persistência de sessão utilizando `sessionStorage`.
+- **Interface de login social** — botões para Google, Facebook e LinkedIn, ainda sem autenticação OAuth real.
+- **Redirecionamento automático** — após o cadastro bem-sucedido, o usuário é direcionado para a tela de login.
+- **Suporte à tecla Enter** — permite enviar os formulários pelo teclado.
+
+###  Em desenvolvimento — Backend
+
+- **API com Node.js e Express** — endpoints REST para operações de autenticação.
+- **Persistência em banco de dados** — SQL ou Oracle, ainda em avaliação.
+- **Hash de senhas** — utilização do bcrypt com salt rounds.
+- **Autenticação JWT** — gerenciamento de sessões por meio de tokens.
+- **Verificação de e-mail** — confirmação da conta após o cadastro.
+- **OAuth real** — integração com Google, Facebook e LinkedIn.
+- **Recuperação de senha** — fluxo de redefinição por e-mail.
+- **Página 404 personalizada** — página de erro com identidade visual do projeto e redirecionamento para o login.
+
+---
+
+##  Arquitetura do projeto
+
+### Frontend atual
+
 ```text
 src/
-├── index.html    # Page structure (login + signup + modal)
-├── style.css     # Styling, animations, responsive layout
-└── script.js     # Auth logic, validation, state management
+├── index.html    # Estrutura da página: login, cadastro e modal
+├── style.css     # Estilos, animações e layout responsivo
+└── script.js     # Lógica de autenticação, validação e gerenciamento de estado
 ```
 
-### Full-Stack Target
+### Estrutura planejada para a aplicação full-stack
+
 ```text
 auth-system/
 ├── frontend/
@@ -66,7 +71,7 @@ auth-system/
 │   │   ├── style.css
 │   │   └── script.js
 │   └── ...
-├── backend/               → (in development)
+├── backend/               # Em desenvolvimento
 │   ├── src/
 │   │   ├── controllers/
 │   │   ├── models/
@@ -74,7 +79,7 @@ auth-system/
 │   │   └── middleware/
 │   ├── package.json
 │   └── server.js
-├── database/              → (in development)
+├── database/              # Em desenvolvimento
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -82,98 +87,121 @@ auth-system/
 
 ---
 
-## 🎨 Design
+##  Design e identidade visual
 
-| Element | Detail |
-|---------|--------|
-| **Color palette** | Navy blue (`#1A233D`) + cream off-white (`#F7F4EF`) + gold accents |
-| **Layout** | Split-card design — functional form panel + motivational text panel |
-| **Animation** | CSS-only slide transition via `<input type="checkbox">` (no JS) |
-| **Typography** | Playfair Display (headings) + DM Sans (body) |
-| **Icons** | SVG inline — zero external dependencies |
-
----
-
-## 📸 Screenshots
-
-### Login
-<img width="1919" height="907" alt="Login - captura de tela (projeto)" src="https://github.com/user-attachments/assets/fc5dc64b-5256-4e68-83c5-8803492c428a" />
-
-
-### Signup
-<img width="1918" height="907" alt="Cadastro - captura de tela (projeto)" src="https://github.com/user-attachments/assets/73edf9bc-f8b2-4aa5-8370-ec75de478a34" />
+| Elemento | Detalhes |
+|---|---|
+| **Paleta de cores** | Azul-marinho (`#1A233D`), branco-creme (`#F7F4EF`) e detalhes em dourado |
+| **Layout** | Cartão dividido entre o formulário funcional e um painel com mensagens motivacionais |
+| **Animação** | Transição deslizante feita exclusivamente com CSS, utilizando `<input type="checkbox">`, sem JavaScript |
+| **Tipografia** | Playfair Display para títulos e DM Sans para o corpo do texto |
+| **Ícones** | SVG incorporado diretamente ao código, sem dependências externas |
 
 ---
 
-## 🔌 Tech Stack
+##  Capturas de tela
 
-| Layer | Technology | Status |
-|-------|-----------|--------|
-| **Frontend** | HTML5, CSS3, Vanilla JS | ✅ Complete |
-| **Backend** | Node.js, Express | 🚧 Planned |
-| **Database** | PostgreSQL / MongoDB | 🚧 Evaluation |
-| **Auth** | JWT, bcrypt | 🚧 Planned |
-| **OAuth** | Google, Facebook, LinkedIn | 🚧 Planned |
+### Tela de login
+
+<img width="1919" height="907" alt="Captura de tela da página de login" src="https://github.com/user-attachments/assets/fc5dc64b-5256-4e68-83c5-8803492c428a" />
+
+### Tela de cadastro
+
+<img width="1918" height="907" alt="Captura de tela da página de cadastro" src="https://github.com/user-attachments/assets/73edf9bc-f8b2-4aa5-8370-ec75de478a34" />
 
 ---
 
-## 🚀 Getting Started
+##  Tecnologias utilizadas
 
-### Try it online
+| Camada | Tecnologia | Status |
+|---|---|---|
+| **Frontend** | HTML5, CSS3 e JavaScript puro | ✅ Concluído |
+| **Backend** | Node.js e Express | 🚧 Planejado |
+| **Banco de dados** | PostgreSQL ou MongoDB | 🚧 Em avaliação |
+| **Autenticação** | JWT e bcrypt | 🚧 Planejado |
+| **OAuth** | Google, Facebook e LinkedIn | 🚧 Planejado |
 
-The project is deployed on Vercel — just click and try:
+---
+
+##  Como executar o projeto
+
+### Acesse a versão online
+
+O projeto está hospedado na Vercel. Acesse o link abaixo para testar a interface:
 
 🔗 **[auth-system.vercel.app](https://auth-system.vercel.app)**
 
-> Create an account on the signup screen, then log in with the same credentials.
+> Na tela de cadastro, crie uma conta e depois utilize as mesmas credenciais na tela de login. O fluxo atual é demonstrativo e ainda não utiliza um backend com persistência de dados.
 
-### Run locally
+### Execute localmente
 
-1. Clone the repository:
+**1. Clone o repositório:**
+
 ```bash
 git clone https://github.com/rsanguini/auth-system.git
+```
+
+**2. Acesse a pasta do frontend:**
+
+```bash
 cd auth-system/src
 ```
 
-2. Open `index.html` in any modern browser — no build step required.
+**3. Abra o arquivo `index.html` em qualquer navegador moderno.**
 
-> ⚠️ Data is stored in memory only — refreshing the page clears all registered users. Backend persistence is the next development phase.
----
+Não é necessário instalar dependências ou executar um processo de build.
 
-## 🗺️ Roadmap
-
-| Phase | Description | Status |
-|-------|-------------|--------|
-| **1. Frontend** | Login, signup, validation, UI/UX | ✅ Complete |
-| **2. Backend API** | Express server, REST endpoints, middleware | 🚧 Next |
-| **3. Database** | Schema design, user model, migrations | 📋 Planned |
-| **4. Security** | bcrypt hashing, JWT tokens, rate limiting | 📋 Planned |
-| **5. OAuth** | Google, Facebook, LinkedIn passport strategies | 📋 Planned |
-| **6. Email** | Verification on signup, password reset flow | 📋 Planned |
-| **7. Polish** | Animations, responsive mobile, dark mode, custom 404 page | 📋 Planned |
+> ⚠️ **Limitação atual:** os usuários cadastrados são armazenados em memória durante a execução da aplicação. Ao atualizar a página, os dados podem ser perdidos. A persistência em banco de dados será implementada na etapa de desenvolvimento do backend.
 
 ---
 
-## 🧠 Concepts Applied
+##  Roadmap
 
-- **DOM manipulation** — element selection, class toggling, dynamic content
-- **Event-driven programming** — `addEventListener`, `keydown`, `click`
-- **Form validation** — regex, length checks, field comparison, real-time feedback
-- **State management** — in-memory object as mock database
-- **Session storage** — `sessionStorage` for "Remember me" feature
-- **CSS animations** — pure CSS slide transition with `transform` and `transition`
-- **Modular functions** — separation of concerns (validation, UI, auth logic)
+| Etapa | Descrição | Status |
+|---|---|---|
+| **1. Frontend** | Login, cadastro, validações e interface | ✅ Concluído |
+| **2. API Backend** | Servidor Express, endpoints REST e middlewares | 🚧 Próxima etapa |
+| **3. Banco de dados** | Modelagem, estrutura dos usuários e migrações | 📋 Planejado |
+| **4. Segurança** | Hash com bcrypt, tokens JWT e limitação de requisições | 📋 Planejado |
+| **5. OAuth** | Autenticação com Google, Facebook e LinkedIn | 📋 Planejado |
+| **6. E-mails** | Verificação de conta e recuperação de senha | 📋 Planejado |
+| **7. Refinamento** | Animações, responsividade mobile, modo escuro e página 404 personalizada | 📋 Planejado |
+
+---
+
+##  Conceitos aplicados
+
+- **Manipulação do DOM** — seleção de elementos, alternância de classes e atualização dinâmica de conteúdo.
+- **Programação orientada a eventos** — utilização de `addEventListener` e eventos de teclado e clique.
+- **Validação de formulários** — expressões regulares, verificações de tamanho, comparação de campos e feedback em tempo real.
+- **Gerenciamento de estado** — utilização de objetos em memória para simular um banco de dados.
+- **Armazenamento de sessão** — uso de `sessionStorage` para implementar a funcionalidade "Lembrar de mim".
+- **Animações CSS** — transições realizadas com `transform` e `transition`.
+- **Funções modulares** — separação de responsabilidades entre validação, interface e lógica de autenticação.
 
 ---
 
-## 👤 Author
+##  Autor
 
-**Rafael Sanguini Colagrossi** — Software Engineering Student
+**Rafael Sanguini Colagrossi** <br>
+--  Desenvolvedor de software apaixonado por Código, Inteligência Artificial, Tecnologia Financeira e Desenvolvimento Full-Stack.
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/rafaelsanguini)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/rsanguini)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat-square&logo=vercel&logoColor=white)](https://rafaelsanguini.vercel.app)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:rafaelcolagrossi@gmail.com)
+Criando softwares modernos com foco em desempenho, arquitetura limpa e excelente experiência do usuário. --
+<p>
+  <a href="https://linkedin.com/in/rafaelsanguini">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="https://github.com/rsanguini">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
+  <a href="https://rafaelsanguini.vercel.app">
+    <img src="https://img.shields.io/badge/Portfólio-000000?style=flat-square&logo=vercel&logoColor=white" alt="Portfólio"/>
+  </a>
+  <a href="mailto:rafaelcolagrossi@gmail.com">
+    <img src="https://img.shields.io/badge/E--mail-D14836?style=flat-square&logo=gmail&logoColor=white" alt="E-mail"/>
+  </a>
+</p>
 
 ---
-<div align="center">⭐ If this project was helpful, leave a star — it means a lot!</div>
+
+<div align="center">⭐ Se este projeto foi útil para você, considere deixar uma estrela no repositório!</div>
