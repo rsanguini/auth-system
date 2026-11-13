@@ -1,0 +1,31 @@
+# Serviços locais de desenvolvimento. Subir: docker compose up -d   |   Parar: docker compose down
+# Os valores vêm do arquivo .env (veja .env.example). Nada aqui é para produção.
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:?defina POSTGRES_USER no .env}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+      POSTGRES_DB: ${POSTGRES_DB:?defina POSTGRES_DB no .env}
+    ports:
+      # 127.0.0.1 = só o seu computador acessa. Nunca exponha o banco para a rede.
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Captura os e-mails enviados em desenvolvimento. Interface: http://localhost:8025
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:1025:1025' # SMTP (o backend envia para cá)
+      - '127.0.0.1:8025:8025' # Interface web (você lê os e-mails aqui)
+
+volumes:
+  db_data:
