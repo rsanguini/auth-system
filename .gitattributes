@@ -1,0 +1,4 @@
+# Normaliza quebras de linha (evita diffs enormes entre Windows e macOS/Linux).
+* text=auto eol=lf
+*.png binary
+*.woff2 binary

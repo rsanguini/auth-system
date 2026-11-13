@@ -1,10 +1,12 @@
-# OS
+# Sistema operacional
 .DS_Store
 Thumbs.db
 desktop.ini
 
 # Editor
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .idea/
 *.swp
 *.swo
@@ -14,15 +16,22 @@ desktop.ini
 *.log
 npm-debug.log*
 
-# Dependencies (future)
+# Dependências
 node_modules/
-package-lock.json
+# O package-lock.json DEVE ser versionado (garante as mesmas versões em todo computador).
 
-# Environment (future)
+# Segredos e ambiente (NUNCA commitar)
 .env
 .env.local
 .env.*.local
+*.pem
+*.key
 
-# Build (future)
+# Build
 dist/
 build/
+
+# Testes e QA (evidências geradas localmente)
+artifacts/
+playwright-report/
+test-results/

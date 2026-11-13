@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "ms-playwright.playwright",
+    "ms-azuretools.vscode-docker",
+    "cweijan.vscode-database-client2"
+  ]
+}

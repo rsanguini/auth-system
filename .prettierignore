@@ -1,0 +1,13 @@
+node_modules
+artifacts
+playwright-report
+test-results
+package-lock.json
+.claude
+
+# Arquivos legados, ainda NÃO formatados (README e front-end).
+# O cartão 0.7 (docs/fases/00-fundacao.md) ensina a formatar e a remover estas linhas.
+README.md
+frontend/index.html
+frontend/style.css
+frontend/script.js

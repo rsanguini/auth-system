@@ -1,0 +1,31 @@
+{
+  "name": "auth-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Sistema de autenticação full-stack (em construção) — projeto de portfólio e aprendizado.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "serve:front": "http-server frontend -p 4173 -a 127.0.0.1 -c-1",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:e2e": "playwright test --project=chromium-desktop --project=chromium-mobile",
+    "test:visual": "playwright test --project=visual-desktop --project=visual-mobile",
+    "test:visual:update": "playwright test --project=visual-desktop --project=visual-mobile --update-snapshots",
+    "test:report": "playwright show-report artifacts/auto-qa/playwright-report",
+    "qa": "npm run lint && npm run format:check && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "http-server": "^14.1.1",
+    "prettier": "^3.10.1"
+  }
+}
