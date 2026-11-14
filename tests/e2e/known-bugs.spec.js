@@ -30,7 +30,6 @@ test('BUG-001: Enter dentro do modal não deve disparar o login', async ({ page 
 });
 
 test('BUG-002: a mensagem de erro do login volta ao texto certo', async ({ page }) => {
-  test.fail(true, 'BUG-002: textContent do erro é sobrescrito e nunca restaurado');
   await page.goto('/');
   await page.locator('#loginUsuario').fill('usuario_que_nao_existe');
   await page.locator('#loginSenha').fill('qualquer');

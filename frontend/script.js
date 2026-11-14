@@ -22,9 +22,12 @@
   }
 
   // ===== VALIDAÇÕES =====
-  function setErro(id, erroId, show) {
+  function setErro(id, erroId, show, texto) {
     const input = document.getElementById(id);
     const msg = document.getElementById(erroId);
+    // Guarda o texto do HTML uma única vez, antes de qualquer troca, para poder restaurá-lo.
+    msg.dataset.padrao ??= msg.textContent;
+    msg.textContent = texto ?? msg.dataset.padrao;
     if (show) {
       input.classList.add('erro'); input.classList.remove('ok');
       msg.classList.add('visivel');
@@ -102,14 +105,12 @@
     if (!ok) { toast('Preencha todos os campos', 'erro'); return; }
 
     if (!db[usuario]) {
-      setErro('loginUsuario', 'erroLoginUsuario', true);
-      document.getElementById('erroLoginUsuario').textContent = 'Usuário não encontrado';
+      setErro('loginUsuario', 'erroLoginUsuario', true, 'Usuário não encontrado');
       toast('Usuário não encontrado', 'erro'); return;
     }
 
     if (db[usuario].senha !== senha) {
-      setErro('loginSenha', 'erroLoginSenha', true);
-      document.getElementById('erroLoginSenha').textContent = 'Senha incorreta';
+      setErro('loginSenha', 'erroLoginSenha', true, 'Senha incorreta');
       toast('Senha incorreta', 'erro'); return;
     }
 
