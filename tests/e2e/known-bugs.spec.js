@@ -20,7 +20,6 @@ async function registerAndReturnToLogin(page, user) {
 }
 
 test('BUG-001: Enter dentro do modal não deve disparar o login', async ({ page }) => {
-  test.fail(true, 'BUG-001: o Enter global chama fazerLogin() mesmo com o modal aberto');
   await page.goto('/');
   await page.getByText('Esqueci minha senha').click();
   await page.locator('#recuperarUsuario').fill('alguem');
@@ -78,9 +77,9 @@ test('BUG-004: login com usuário errado e com senha errada dão a MESMA mensage
 });
 
 test('BUG-005: login e cadastro são <form> de verdade', async ({ page }) => {
-  test.fail(true, 'BUG-005: não há <form>; quebra gerenciador de senhas, Enter nativo e leitores');
   await page.goto('/');
-  await expect(page.locator('form')).toHaveCount(2);
+  await expect(page.locator('form#formLogin')).toHaveCount(1);
+  await expect(page.locator('form#formCadastro')).toHaveCount(1);
 });
 
 test('BUG-006: as fontes Playfair Display e DM Sans são carregadas', async ({ page }) => {

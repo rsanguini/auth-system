@@ -147,10 +147,15 @@
     if (e.target === this) fecharModalSenha();
   });
 
-  // Enter para submeter
-  document.addEventListener('keydown', e => {
-    if (e.key !== 'Enter') return;
-    const toggle = document.getElementById('toggle');
-    if (toggle.checked) fazerCadastro();
-    else fazerLogin();
-  });
+  // O navegador dispara "submit" tanto no clique no botão quanto no Enter.
+  // preventDefault() impede o envio padrão (GET para a própria URL, recarregando a página).
+  function ligarSubmit(id, handler) {
+    document.getElementById(id).addEventListener('submit', e => {
+      e.preventDefault();
+      handler();
+    });
+  }
+
+  ligarSubmit('formLogin', fazerLogin);
+  ligarSubmit('formCadastro', fazerCadastro);
+  ligarSubmit('formRecuperar', recuperarSenha);
