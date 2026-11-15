@@ -118,7 +118,7 @@ test.describe('Login', () => {
     await page.locator('#loginSenha').fill('qualquer-coisa');
     await page.locator('#btnLogin').click();
 
-    await expect(page.locator('#erroLoginUsuario')).toBeVisible();
+    await expect(page.locator('#erroLoginSenha')).toBeVisible();
     await page.waitForTimeout(1800);
     expect(dialogs).toEqual([]);
   });

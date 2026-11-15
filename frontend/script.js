@@ -1,6 +1,10 @@
 // ===== BANCO DE DADOS EM MEMÓRIA =====
   const db = {};
 
+  const CREDENCIAIS_INVALIDAS = 'Usuário ou senha incorretos';
+  const RECUPERACAO_INDISPONIVEL =
+    'A recuperação de senha por e-mail ainda não está disponível. Quando estiver, você receberá as instruções no e-mail cadastrado.';
+
   // ===== TOAST =====
   let toastTimer;
   function toast(msg, tipo = 'info') {
@@ -104,14 +108,12 @@
 
     if (!ok) { toast('Preencha todos os campos', 'erro'); return; }
 
-    if (!db[usuario]) {
-      setErro('loginUsuario', 'erroLoginUsuario', true, 'Usuário não encontrado');
-      toast('Usuário não encontrado', 'erro'); return;
-    }
-
-    if (db[usuario].senha !== senha) {
-      setErro('loginSenha', 'erroLoginSenha', true, 'Senha incorreta');
-      toast('Senha incorreta', 'erro'); return;
+    // Mesma resposta, no mesmo campo, para "usuário não existe" e "senha errada":
+    // diferenças permitiriam descobrir quais contas existem (enumeração).
+    const conta = db[usuario];
+    if (!conta || conta.senha !== senha) {
+      setErro('loginSenha', 'erroLoginSenha', true, CREDENCIAIS_INVALIDAS);
+      toast(CREDENCIAIS_INVALIDAS, 'erro'); return;
     }
 
     if (lembrar) sessionStorage.setItem('usuario', usuario);
@@ -138,9 +140,9 @@
   function recuperarSenha() {
     const usuario = document.getElementById('recuperarUsuario').value.trim();
     if (!usuario) { toast('Informe o nome de usuário', 'erro'); return; }
-    if (!db[usuario]) { toast('Usuário não encontrado', 'erro'); return; }
+    // Não consulta o db: a resposta é igual para qualquer nome, sem vazar quem tem conta.
     fecharModalSenha();
-    toast(`Sua senha é: ${db[usuario].senha} (simulação)`, 'sucesso');
+    toast(RECUPERACAO_INDISPONIVEL, 'info');
   }
 
   // Fechar modal ao clicar fora

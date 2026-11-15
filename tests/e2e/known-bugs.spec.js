@@ -34,15 +34,15 @@ test('BUG-002: a mensagem de erro do login volta ao texto certo', async ({ page 
   await page.locator('#loginUsuario').fill('usuario_que_nao_existe');
   await page.locator('#loginSenha').fill('qualquer');
   await page.locator('#btnLogin').click();
-  await expect(page.locator('#erroLoginUsuario')).toBeVisible();
+  await expect(page.locator('#erroLoginSenha')).toBeVisible();
+  await expect(page.locator('#erroLoginSenha')).toHaveText('Usuário ou senha incorretos');
 
-  await page.locator('#loginUsuario').fill('');
+  await page.locator('#loginSenha').fill('');
   await page.locator('#btnLogin').click();
-  await expect(page.locator('#erroLoginUsuario')).toHaveText('Informe seu nome de usuário');
+  await expect(page.locator('#erroLoginSenha')).toHaveText('Informe sua senha');
 });
 
 test('BUG-003: recuperar senha NUNCA mostra a senha', async ({ page }) => {
-  test.fail(true, 'BUG-003: o toast exibe a senha em texto puro (falha de segurança)');
   const user = newTestUser();
   await registerAndReturnToLogin(page, user);
 
@@ -57,7 +57,6 @@ test('BUG-003: recuperar senha NUNCA mostra a senha', async ({ page }) => {
 test('BUG-004: login com usuário errado e com senha errada dão a MESMA mensagem', async ({
   page,
 }) => {
-  test.fail(true, 'BUG-004: mensagens diferentes revelam quais usuários existem (enumeração)');
   const user = newTestUser();
   await registerAndReturnToLogin(page, user);
 
