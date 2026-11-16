@@ -128,11 +128,13 @@ test('BUG-010: a página não tem violações graves de acessibilidade (axe, WCA
 });
 
 test('BUG-011: campos têm o atributo autocomplete correto', async ({ page }) => {
-  test.fail(true, 'BUG-011: sem autocomplete, o navegador não sugere nem salva senha direito');
   await page.goto('/');
+  await expect(page.locator('#loginUsuario')).toHaveAttribute('autocomplete', 'username');
   await expect(page.locator('#loginSenha')).toHaveAttribute('autocomplete', 'current-password');
-  await expect(page.locator('#cadastroSenha')).toHaveAttribute('autocomplete', 'new-password');
+  await expect(page.locator('#cadastroUsuario')).toHaveAttribute('autocomplete', 'username');
   await expect(page.locator('#cadastroEmail')).toHaveAttribute('autocomplete', 'email');
+  await expect(page.locator('#cadastroSenha')).toHaveAttribute('autocomplete', 'new-password');
+  await expect(page.locator('#cadastroConfirmar')).toHaveAttribute('autocomplete', 'new-password');
 });
 
 test('BUG-012: o site tem favicon', async ({ page }) => {
