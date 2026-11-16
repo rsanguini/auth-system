@@ -175,3 +175,29 @@ test.describe('Modal "Esqueci minha senha"', () => {
     await expect(toast(page)).toHaveText('Informe o nome de usuário');
   });
 });
+
+test.describe('Botão de mostrar/ocultar senha', () => {
+  async function alternaCampoEEstado(page, campoId) {
+    const campo = page.locator(`#${campoId}`);
+    const olho = page.locator(`#${campoId} ~ .toggle-senha`);
+
+    await expect(olho).toHaveAttribute('aria-pressed', 'false');
+    await olho.click();
+    await expect(campo).toHaveAttribute('type', 'text');
+    await expect(olho).toHaveAttribute('aria-pressed', 'true');
+    await olho.click();
+    await expect(campo).toHaveAttribute('type', 'password');
+    await expect(olho).toHaveAttribute('aria-pressed', 'false');
+  }
+
+  test('no login, alterna o tipo do campo e o aria-pressed', async ({ page }) => {
+    await page.goto('/');
+    await alternaCampoEEstado(page, 'loginSenha');
+  });
+
+  test('no cadastro, alterna o tipo do campo e o aria-pressed', async ({ page }) => {
+    await page.goto('/');
+    await goToSignup(page);
+    await alternaCampoEEstado(page, 'cadastroSenha');
+  });
+});

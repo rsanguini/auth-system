@@ -101,7 +101,6 @@ test('BUG-006: as fontes Playfair Display e DM Sans são carregadas', async ({ p
 test('BUG-008: o botão de mostrar/ocultar senha é visível e tem nome acessível', async ({
   page,
 }) => {
-  test.fail(true, 'BUG-008: o botão nasce vazio (sem ícone, sem texto, sem aria-label)');
   await page.goto('/');
   const botao = page.locator('#loginSenha ~ .toggle-senha');
   await expect(botao).toBeVisible();

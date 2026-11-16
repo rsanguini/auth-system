@@ -259,7 +259,8 @@
       align-items: center;
     }
 
-    .input-wrap svg {
+    /* ">" limita ao ícone decorativo da esquerda; o SVG do botão do olho não pode herdar isto. */
+    .input-wrap > svg {
       position: absolute;
       left: 12px;
       width: 16px;
