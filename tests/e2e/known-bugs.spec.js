@@ -81,11 +81,21 @@ test('BUG-005: login e cadastro são <form> de verdade', async ({ page }) => {
 });
 
 test('BUG-006: as fontes Playfair Display e DM Sans são carregadas', async ({ page }) => {
-  test.fail(true, 'BUG-006: as fontes são citadas no CSS mas nunca carregadas');
   await page.goto('/');
-  await page.evaluate(() => document.fonts.ready);
-  const fontesCarregadas = await page.evaluate(() => document.fonts.size);
-  expect(fontesCarregadas).toBeGreaterThan(0);
+  // `document.fonts.size` conta fontes DECLARADAS; só o status "loaded" prova que o arquivo baixou.
+  const fontes = await page.evaluate(async () => {
+    await document.fonts.ready;
+    return [...document.fonts].map((f) => ({
+      familia: f.family.replace(/["']/g, ''),
+      status: f.status,
+    }));
+  });
+  for (const familia of ['Playfair Display', 'DM Sans']) {
+    expect(fontes, `${familia} deve estar carregada`).toContainEqual({
+      familia,
+      status: 'loaded',
+    });
+  }
 });
 
 test('BUG-008: o botão de mostrar/ocultar senha é visível e tem nome acessível', async ({
